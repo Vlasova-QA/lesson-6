@@ -18,4 +18,17 @@ public class Google {
         // Проверить, что Selenide появился в результатах поиска
         $("#search").shouldHave(text("selenide.org"));
     }
+    
+    @Test
+    void gradleSearchTest() {
+        // Открыть google
+        open("https://www.yandex.ru/");
+
+        // Ввести Selenide в поиск
+        $x("//input[@id = 'text']").setValue("Gradle").pressEnter();
+
+        // Проверить, что Selenide появился в результатах поиска
+        $x("//div[@class = 'main__center']").shouldHave(text("gradle.org"));
+    }
+
 }
